@@ -1,0 +1,261 @@
+/*=======Підключення шрифтів=======*/
+@import url("fonts.css");
+
+/*=======Скидання стилів=======*/
+@import url("reset.css");
+
+
+
+
+
+body {
+	font-family: 'Inter', sans-serif;
+}
+
+
+.main {}
+
+.main__container {
+	/*ставим по центру карточку*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #191919;
+	/*ставим по центру карточку*/
+}
+
+/*<!-- card -->*/
+.card {
+	width: 320px;
+	height: 500px;
+	background-color: rgb(23, 21, 21);
+	border-radius: 20px;
+	color: #fff;
+	box-shadow: 5px 1px 40px #6c6c6c;
+
+}
+
+/*<!-- верх card -->*/
+.card__body {
+	text-align: center;
+}
+
+h1 {
+	padding: 20px 0;
+	font-size: 25px;
+	font-weight: 700;
+	color: ;
+}
+
+h2 {
+	font-size: 14px;
+	line-height: 130%;
+	padding: 0 15px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+
+/*<!-- 2 foto --> */
+.card__block-img {
+	flex: 0 1 50px;
+	/*для обвертки фотографии*/
+}
+
+.card:hover .card__block-img--1 img {
+	transform: scale(1.1);
+}
+
+.card__block-img--1 img {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	top: -37px;
+	left: -20px;
+	transition: 1.5s;
+	transform: scale(1.001);
+}
+
+.card:hover .card__block-img--2 img {
+	transform: scale(1.1);
+	transition-delay: 0.5s;
+	/*задержка в появлении блока с текстом */
+}
+
+.card__block-img--2 img {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	top: -250px;
+	right: -50px;
+	transition: 2s;
+	transform: scale(1.001);
+}
+
+
+/*<!-- низ card -->*/
+.card__down {
+	margin-top: -315px;
+	padding: 0 15px;
+	font-size: 14px;
+
+	display: flex;
+	/* что бы весь блок "content" встал по ЦЕНТРУ */
+	flex-direction: column;
+	/* что бы весь блок "content" встал по ЦЕНТРУ */
+	align-items: center;
+	/* что бы весь блок "content" встал по ЦЕНТРУ */
+
+}
+
+.card:hover .card__down p {
+	animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+/*анимация для .card__down p*/
+@-webkit-keyframes tracking-in-expand {
+	0% {
+		letter-spacing: -0.5em;
+		opacity: 0;
+	}
+
+	40% {
+		opacity: 0.6;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes tracking-in-expand {
+	0% {
+		letter-spacing: -0.5em;
+		opacity: 0;
+	}
+
+	40% {
+		opacity: 0.6;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+/*анимация для .card__down p*/
+
+
+/*Characteristics:*/
+.card__down p {
+	margin-bottom: 10px;
+	text-shadow: 1px 0 10px #fff;
+	font-size: 20px;
+	color: red;
+	align-self: start;
+	/* только это "Characteristics:" будет СЛЕВА */
+}
+
+
+.list {
+	margin-bottom: 7px;
+	visibility: hidden;
+	opacity: 0;
+	/*делаем плавность появления */
+	transition: 0.5s;
+	/*делаем плавность появления */
+}
+
+.card:hover .list {
+	visibility: visible;
+	opacity: 1;
+	/*делаем плавность появления */
+}
+
+.link:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+.link {
+	position: relative;
+	padding-left: 18px;
+	display: inline-block;
+	line-height: 140%;
+}
+
+.link::before {
+	content: "";
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: red;
+	top: 0px;
+	left: 0;
+	border-radius: 50%;
+	border: 1px solid transparent;
+	transiton: 0.5s;
+}
+
+.link:hover::before {
+	border: 1px solid #fff;
+	cursor: pointer;
+}
+
+/*Buy now <!-- Кнопка --> */
+a {
+	padding: 15px 30px;
+	background-color: rgb(190, 2, 2);
+	border-radius: 10px;
+	border: 1px solid transparent;
+	color: #fff;
+	font-wieght: 700;
+	text-align: center;
+	margin-top: -60px;
+
+
+	visibility: hiden;
+	opacity: 1;
+	/*делаем плавность появления */
+}
+
+.card:hover a {
+	visibility: visible;
+	opacity: 0.5;
+	/*делаем плавность появления */
+	border: 1px solid #fff;
+	cursor: pointer;
+	animation: slide-rotate-hor-b-fwd 0.9s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+/*сценарий анимации*/
+@-webkit-keyframes slide-rotate-hor-b-fwd {
+	0% {
+		-webkit-transform: translateY(0) translateZ(0) rotateX(0deg);
+		transform: translateY(0) translateZ(0) rotateX(0deg);
+		-webkit-transform-origin: top center;
+		transform-origin: top center;
+	}
+
+	100% {
+		-webkit-transform: translateY(150px) translateZ(130px) rotateX(90deg);
+		transform: translateY(150px) translateZ(130px) rotateX(90deg);
+		-webkit-transform-origin: top center;
+		transform-origin: top center;
+	}
+}
+
+@keyframes slide-rotate-hor-b-fwd {
+	0% {
+		-webkit-transform: translateY(0) translateZ(0) rotateX(0deg);
+		transform: translateY(0) translateZ(0) rotateX(0deg);
+		-webkit-transform-origin: top center;
+		transform-origin: top center;
+	}
+
+	100% {
+		-webkit-transform: translateY(-150px) translateZ(-130px) rotateX(-90deg);
+		transform: translateY(-150px) translateZ(-130px) rotateX(-90deg);
+		-webkit-transform-origin: top center;
+		transform-origin: top center;
+	}
+}
